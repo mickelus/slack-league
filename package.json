@@ -1,0 +1,24 @@
+{
+  "name": "slackpong",
+  "version": "1.0.0",
+  "description": "ping pong tournament leaderboard for slack",
+  "main": "main.js",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1",
+    "elo-rank": "^1.0.0",
+    "express": "^4.13.3",
+    "extend": "^3.0.0",
+    "jsonfile": "^2.2.3",
+    "moment": "^2.11.1",
+    "moment-timezone": "^0.5.0",
+    "request": "^2.65.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mickelus",
+  "license": "ISC",
+  "repository": ""
+}

@@ -1,0 +1,21 @@
+<div class="ladder-container">
+    <ul class="ladder-list">
+        <li ng-repeat="player in vm.ladder track by player.username" ng-click="vm.selectPlayer($index)" ng-class="{active: vm.selectedIndex==$index}" highlight="player.score">
+            <span>{{$index+1}}</span>
+            <img ng-src="{{player.imageLarge}}">
+            <span>{{player.name || player.username}}</span>
+            <span>{{player.score}}</span>
+        </li>
+    </ul>
+    <div class="player-container" ng-style="vm.playerColor()">
+        <img ng-src="{{vm.selectedPlayer.imageLarge}}">
+        <div class="name-wrapper">
+            <span class="player-name">{{vm.selectedPlayer.name || vm.selectedPlayer.username}}</span>
+            <span class="player-username">{{vm.selectedPlayer.username}}</span>
+        </div>
+        <div>
+            <span class="player-rank">#{{vm.selectedIndex+1}}</span>
+            <span class="player-score">{{vm.selectedPlayer.score}}</span>
+        </div>
+    </div>
+</div>

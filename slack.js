@@ -45,6 +45,7 @@ module.exports = function(configExtension, ladder) {
 
     var app = express();
     app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(express.static('dist'));
     app.listen(config.port);
     console.log('Now accepting connections on port:' + config.port);
 
@@ -69,7 +70,7 @@ module.exports = function(configExtension, ladder) {
         }
 
     });
-    app.get('/ladder', function(req, res) {
+    app.get('/api/ladder', function(req, res) {
         var rankings = ladder.getRankings();
         var result = [];
         for (var i = 0; i < rankings.length; i++) {
@@ -84,7 +85,7 @@ module.exports = function(configExtension, ladder) {
         res.status(200);
         res.json(result);
     });
-    app.get('/reports', function(req, res) {
+    app.get('/api/reports', function(req, res) {
         var reports = ladder.getRecentReports();
         var result = [];
         for (var i = 0; i < reports.length; i++) {

@@ -1,22 +1,19 @@
-/* global malarkey:false, moment:false */
+/* global moment:false */
 
 import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
-import { MainController } from './main/main.controller';
-import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
-import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
-import { NavbarDirective } from '../app/components/navbar/navbar.directive';
-import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
+import {MainController} from './main/main.controller';
+import LadderController from './ladder/ladder.controller';
+import {ReportsController} from './reports/reports.controller';
+import highlight from './components/highlight/highlight.directive';
 
-angular.module('app', ['ngAnimate', 'ngTouch', 'ui.router', 'toastr'])
-  .constant('malarkey', malarkey)
+angular.module('app', ['ngAnimate', 'ngTouch', 'ui.router', 'emguo.poller'])
   .constant('moment', moment)
   .config(config)
   .config(routerConfig)
   .run(runBlock)
-  .service('githubContributor', GithubContributorService)
-  .service('webDevTec', WebDevTecService)
   .controller('MainController', MainController)
-  .directive('acmeNavbar', NavbarDirective)
-  .directive('acmeMalarkey', MalarkeyDirective);
+  .controller('LadderController', LadderController)
+  .controller('ReportsController', ReportsController)
+  .directive('highlight', highlight);

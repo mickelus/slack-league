@@ -1,0 +1,27 @@
+<div class="reports-container">
+    <ul class="reports-list">
+        <li ng-repeat="report in vm.reports track by report.date">
+            <div class="winner-container">
+                <img ng-src="{{report.winnerData.imageLarge}}">
+                <span class="name-container">
+                    <span class="name-display">{{report.winnerData.name || report.winnerData.username}}</span>
+                    <span class="rating-display">{{report.winnerPrevRating}}</span>
+                    <span class="diff-display">{{report.winnerNewRating-report.winnerPrevRating}}</span>
+                </span>
+                <span class="score-display">{{report.winnerScore}}</span>
+            </div>
+            <div class="loser-container">
+                <span class="name-container">
+                    <span class="name-display">{{report.loserData.name || report.loserData.username}}</span>
+                    <span class="diff-display">{{report.loserNewRating-report.loserPrevRating}}</span>
+                    <span class="rating-display">{{report.loserPrevRating}}</span>
+                </span>
+                <span class="score-display">{{report.loserScore}}</span>
+                <img ng-src="{{report.loserData.imageLarge}}">
+            </div>
+            <div class="time-container">
+                <span>{{report.moment}}</span>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,18 @@
+.highlight {
+    transition: 2s all linear;
+
+    &.increase,
+    &.decrease {
+        transition: 0.1s all ease-out;
+    }
+
+    &.increase {
+        color: green;
+        background-color: #cfc;
+    }
+
+    &.decrease {
+        color: red;
+        background-color: #fcc;
+    }
+}

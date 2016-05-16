@@ -16,14 +16,7 @@ git clone https://github.com/mickelus/slack-league.git && cd slack-league
 ```
 npm install
 ```
-```
-bower install
-```
-4. Build gui
-```
-gulp build
-```
-5. Configure slack integrations
+4. Configure slack integrations
 Add and create a configuration for a slackbot (https://slack.com/apps/A0F81R8ET-slackbot), note down the token.
 Add and create a configuration for an outgoing webhook (https://slack.com/apps/A0F7VRG6Q-outgoing-webhooks)
 * Add the following trigger words `!report, !ladder, !results, !usage`
@@ -32,7 +25,7 @@ Add and create a configuration for an outgoing webhook (https://slack.com/apps/A
 
 Note: Slackbot and outgoing webhooks are considered as "Custom Integrations" and do not contribute towards the teams integration limit.
 
-6. Set up bot configuration
+5. Set up bot configuration
 Create file `config.json` with content:
 ```
 {
@@ -47,6 +40,24 @@ Create file `config.json` with content:
 Fill in the blanks!
 The api token can be found (and generated) here: https://api.slack.com/docs/oauth-test-tokens
 
+6. Set up gui (optional)
+```
+cd app
+```
+```
+npm install
+```
+Note: You may have to run npm install as root/administrator
+```
+bower install
+```
+```
+gulp build
+```
+```
+cd ..
+```
+
 7. Start!
 ```
 node main.js
@@ -58,7 +69,7 @@ The following commands are available in slack:
 Show usage guide
 ```
 !usage
-``
+```
 
 Report results of a game, scores are optional and the reporter is considered the winner if scores are not provided.
 ```

@@ -19,5 +19,58 @@ npm install
 ```
 bower install
 ```
+4. Build gui
+```
+gulp build
+```
+5. Configure slack integrations
+Add and create a configuration for a slackbot (https://slack.com/apps/A0F81R8ET-slackbot), note down the token.
+Add and create a configuration for an outgoing webhook (https://slack.com/apps/A0F7VRG6Q-outgoing-webhooks)
+* Add the following trigger words `!report, !ladder, !results, !usage`
+* Enter the url to the machine where you intend to host the bot and append `/pong`, e.g. 127.0.0.1:8080/pong
+* Note down the token
+
+Note: Slackbot and outgoing webhooks are considered as "Custom Integrations" and do not contribute towards the teams integration limit.
+
+6. Set up bot configuration
+Create file `config.json with content:
+```
+{
+    "domain": "",
+    "channel": "",
+    "apiToken": "",
+    "botToken": "",
+    "hookToken": "",
+    "port": 8080
+}
+```
+Fill in the blanks!
+The api token can be found (and generated) here: https://api.slack.com/docs/oauth-test-tokens
+
+7. Start!
+```
+node main.js
+```
 
 #Usage
+The following commands are available in slack:
+
+Show usage guide
+```
+!usage
+``
+
+Report results of a game, scores are optional and the report is considered the winner if scores are not provided.
+```
+!report @opponent [reporterScore opponentScore]
+```
+
+List the current ladder
+```
+!ladder
+```
+
+List recent results
+```
+!results
+```

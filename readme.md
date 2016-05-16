@@ -10,7 +10,7 @@ npm install -g bower gulp
 ```
 2. Clone the repository & change directory
 ```
-git clone git@github.com:mickelus/slack-league.git && cd slack-league
+git clone https://github.com/mickelus/slack-league.git && cd slack-league
 ```
 3. Install dependencies
 ```

@@ -4,28 +4,28 @@ Game results are reported in a given slack channel, results and the current ladd
 
 ##Setup
 This setup guide assumes that you have nodejs & git installed
-2. Install the required tools (bower & gulp)
+###Install the required tools (bower & gulp)
 ```
 npm install -g bower gulp
 ```
-2. Clone the repository & change directory
+###Clone the repository & change directory
 ```
 git clone https://github.com/mickelus/slack-league.git && cd slack-league
 ```
-3. Install dependencies
+###Install dependencies
 ```
 npm install
 ```
-4. Configure slack integrations
-Add and create a configuration for a slackbot (https://slack.com/apps/A0F81R8ET-slackbot), note down the token.
-Add and create a configuration for an outgoing webhook (https://slack.com/apps/A0F7VRG6Q-outgoing-webhooks)
-* Add the following trigger words `!report, !ladder, !results, !usage`
-* Enter the url to the machine where you intend to host the bot and append `/pong`, e.g. `127.0.0.1:8080/pong`
-* Note down the token
+###Configure slack integrations
+* Add and create a configuration for a slackbot (https://slack.com/apps/A0F81R8ET-slackbot), note down the token.
+* Add and create a configuration for an outgoing webhook (https://slack.com/apps/A0F7VRG6Q-outgoing-webhooks)
+    * Add the following trigger words `!report, !ladder, !results, !usage`
+    * Enter the url to the machine where you intend to host the bot and append `/pong`, e.g. `127.0.0.1:8080/pong`
+    * Note down the token
 
 Note: Slackbot and outgoing webhooks are considered as "Custom Integrations" and do not contribute towards the teams integration limit.
 
-5. Set up bot configuration
+###Set up bot configuration
 Create file `config.json` with content:
 ```
 {
@@ -38,9 +38,10 @@ Create file `config.json` with content:
 }
 ```
 Fill in the blanks!
-The api token can be found (and generated) here: https://api.slack.com/docs/oauth-test-tokens
 
-6. Set up gui (optional)
+The bot token and the hook token are the tokens you noted down in the previous step, the api token can be found (and generated) here: https://api.slack.com/docs/oauth-test-tokens
+
+###Set up the web interface (optional)
 ```
 cd app
 ```
@@ -58,7 +59,7 @@ gulp build
 cd ..
 ```
 
-7. Start!
+###Start!
 ```
 node main.js
 ```

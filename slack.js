@@ -45,7 +45,7 @@ module.exports = function(configExtension, ladder) {
 
     var app = express();
     app.use(bodyParser.urlencoded({ extended: false }));
-    app.use(express.static('dist'));
+    app.use(express.static('app/dist'));
     app.listen(config.port);
     console.log('Now accepting connections on port:' + config.port);
 

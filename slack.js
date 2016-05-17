@@ -122,7 +122,7 @@ module.exports = function(configExtension, ladder) {
                     return;
                 }
 
-                request.get("https://slack.com/api/users.info?token=${config.apiToken}&user=${body.user_name}", function(error, response, bodyRaw) {
+                request.get(`https://slack.com/api/users.info?token=${config.apiToken}&user=${body.user_name}`, function(error, response, bodyRaw) {
                     var body = JSON.parse(bodyRaw);
                     if (body.ok) {
                         updateUserData(body.user);
@@ -157,7 +157,7 @@ module.exports = function(configExtension, ladder) {
                 }
 
                 scoreChange = ladder.reportResults(winner, loser, winnerScore, loserScore);
-                sendMessage(">*${winner}* gains *${scoreChange}* points by defeating *${loser}*");
+                sendMessage(`>*${winner}* gains *${scoreChange}* points by defeating *${loser}*`);
 
             }, function() {
                 sendMessage("An error occured when communicating with the slack API, too bad :I.", winner);
@@ -227,7 +227,7 @@ module.exports = function(configExtension, ladder) {
 
     function parseLoser(userID, successCallback, errorCallback) {
         var user = userID.substring(2, userID.length - 1);
-        request.get("https://slack.com/api/users.info?token=${config.apiToken}&user=${user}", function(error, response, bodyRaw) {
+        request.get(`https://slack.com/api/users.info?token=${config.apiToken}&user=${user}`, function(error, response, bodyRaw) {
             var body = JSON.parse(bodyRaw);
             if (body.ok) {
                 updateUserData(body.user);
@@ -251,7 +251,7 @@ module.exports = function(configExtension, ladder) {
 
     function sendMessage(message, target) {
         var channel =  target ? ('@' + target) : ('%23' + config.channel);
-        request.post("https://${config.domain}.slack.com/services/hooks/slackbot?token=${config.botToken}&channel=${channel}", { body: message });
+        request.post(`https://${config.domain}.slack.com/services/hooks/slackbot?token=${config.botToken}&channel=${channel}`, { body: message });
     }
 
     function padRight(string, length) {
